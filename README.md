@@ -1,2 +1,2 @@
-# kittcar_electrical
+# kitt_electrical
 Electrical designs and documentation.
