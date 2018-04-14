@@ -1,0 +1,32 @@
+// Have been using
+// https://dreampuf.github.io/GraphvizOnline/
+// to generate diagrams
+
+digraph G {
+    {
+        node [shape=box]
+        camera
+        pi
+        pwm_controller
+        battery
+        regulator
+        motor_controller
+    }
+    
+    {
+        node [shape=circle]
+        motor
+        servo
+    }
+
+    camera -> pi [label="mipi"];
+    pi -> pwm_controller [label="i2c"];
+    
+    regulator -> {pi pwm_controller} [label="5v"];
+  
+    battery -> {regulator motor_controller} [label="12v"];
+    
+    pwm_controller -> motor_controller [label="duty cycle pwm\l gpio \l"];
+    pwm_controller -> servo [label="rc pwm \l 5v \l"];
+    
+    motor_controller -> motor [label="vmotor"];
