@@ -30,3 +30,4 @@ digraph G {
     pwm_controller -> servo [label="rc pwm \l 5v \l"];
     
     motor_controller -> motor [label="vmotor"];
+}
